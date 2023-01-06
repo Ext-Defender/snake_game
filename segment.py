@@ -8,4 +8,4 @@ class Segment(Turtle):
         super().__init__(SHAPE)
         self.color(COLOR)
         self.penup()
-        self.is_head = False
+        # self.is_head = False

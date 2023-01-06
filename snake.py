@@ -1,4 +1,6 @@
 # from turtle import Turtle
+import random
+
 from segment import Segment
 STARTING_COORDINATES = [(0, 0), (-20, 0), (-40, 0)]
 UP = 90
@@ -18,7 +20,14 @@ class Snake:
             new_segment = Segment()
             new_segment.goto(coordinate)
             self.segments.append(new_segment)
-        self.segments[0].is_head = True
+        self.head = self.segments[0]
+        # self.segments[0].is_head = True
+
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(1000, 1000)
+        self.segments.clear()
+        self.new_snake()
 
     def add_to_tail(self):
         new_segment = Segment()
@@ -45,3 +54,5 @@ class Snake:
     def right(self):
         if self.head.heading() != LEFT:
             self.head.setheading(0)
+
+
